@@ -11,7 +11,10 @@
     "build:prod": "npm run clean && webpack --config=./webpack.prod.js --stats-all --profile --bail",
     "prepare": "npm run build:prod"
   },
-  "main": "orda-logger",
+  "main": "dist/orda-logger.js",
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/orda-io/orda-logger.git"
@@ -40,8 +43,5 @@
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
     "ws": "^7.5.3"
-  },
-  "directories": {
-    "test": "test"
   }
 }
