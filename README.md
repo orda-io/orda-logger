@@ -1,3 +1,3 @@
 # Orda Logger
 
-Orda Logger is tiny logger written in TypeScript.
+Orda Logger is a very tiny logger written in TypeScript.
