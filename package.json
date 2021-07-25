@@ -1,7 +1,7 @@
 {
   "name": "@orda-io/orda-logger",
   "version": "0.1.2",
-  "description": "Orda Logger",
+  "description": "Orda Logger: a very tiny logger written in Typescript, which is used in Orda project.",
   "scripts": {
     "clean": "rimraf dist",
     "test": "npx mocha --config ./mocharc.json -ui bdd ./test/**/*",
@@ -20,6 +20,12 @@
     "type": "git",
     "url": "git+https://github.com/orda-io/orda-logger.git"
   },
+  "keywords": [
+    "typescript-logger",
+    "console",
+    "browser-logger",
+    "logging"
+  ],
   "author": "Orda Team",
   "license": "Apache-2.0",
   "bugs": {
