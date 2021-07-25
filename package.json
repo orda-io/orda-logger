@@ -11,7 +11,8 @@
     "build:prod": "npm run clean && webpack --config=./webpack.prod.js --stats-all --profile --bail",
     "prepare": "npm run build:prod"
   },
-  "main": "dist/orda-logger.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -21,7 +22,6 @@
   },
   "author": "Orda Team",
   "license": "Apache-2.0",
-  "prepare": "npm run build:prod",
   "bugs": {
     "url": "https://github.com/orda-io/orda-logger/issues"
   },
@@ -38,10 +38,12 @@
     "node-fetch": "^2.6.1",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.2.4",
     "ts-node": "^10.1.0",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
+    "webpack-merge": "^5.8.0",
     "ws": "^7.5.3"
   }
 }

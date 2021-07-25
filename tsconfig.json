@@ -3,29 +3,14 @@
     "target": "esnext",
     "moduleResolution": "node",
     "strict": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": false,
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "dist"
+    "experimentalDecorators": true,
+    "outDir": "./dist"
   },
   "include": [
-    "./src/**/*",
-    "./test/**/*"
+    "./src/**/*"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "typedocOptions": {
-    "entryPoints": [
-      "src/orda-logger.ts"
-    ],
-    "name": "Orda Logger for JavaScript",
-    "theme": "node_modules/eledoc/bin/default/",
-    "out": "docs"
-  }
+  ]
 }
