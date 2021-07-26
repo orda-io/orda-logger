@@ -1,5 +1,5 @@
 import { OrdaLogger, OrdaLoggerFactory, OrdaLogLevel } from "./logger";
 
-
-export type {OrdaLogger, OrdaLogLevel};
-export {OrdaLoggerFactory};
+export type { OrdaLogger };
+export { OrdaLogLevel };
+export { OrdaLoggerFactory };

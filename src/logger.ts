@@ -1,7 +1,7 @@
-import {isBrowser} from "./browser_or_node";
+import { isBrowser } from "./browser_or_node";
 
-export type {OrdaLogger, OrdaLogLevel};
-export {OrdaLoggerFactory};
+export type { OrdaLogger };
+export { OrdaLoggerFactory };
 
 interface OrdaLogger {
     trace: logFunction;
@@ -22,7 +22,14 @@ interface IConsole {
     error: logFunction;
 }
 
-type OrdaLogLevel = 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'silent';
+export const enum OrdaLogLevel {
+    TRACE = "trace",
+    DEBUG = "debug",
+    INFO = "info",
+    WARN = "warn",
+    ERROR = "error",
+    SILENT = "silent"
+}
 
 const logColors: Record<OrdaLogLevel, string> = {
     trace: '\x1B[36m',
@@ -96,13 +103,13 @@ class OrdaConsole implements IConsole {
         if (logLevel) {
             this._logLevel = logLevel;
         } else {
-            this._logLevel = 'trace';
+            this._logLevel = OrdaLogLevel.TRACE;
         }
-        this._trace = this.original.trace.bind(this, this.head('trace'));
-        this._debug = this.original.debug.bind(this, this.head('debug'));
-        this._info = this.original.info.bind(this, this.head('info'));
-        this._warn = this.original.warn.bind(this, this.head('warn'));
-        this._error = this.original.error.bind(this, this.head('error'));
+        this._trace = this.original.trace.bind(this, this.head(OrdaLogLevel.TRACE));
+        this._debug = this.original.debug.bind(this, this.head(OrdaLogLevel.DEBUG));
+        this._info = this.original.info.bind(this, this.head(OrdaLogLevel.INFO));
+        this._warn = this.original.warn.bind(this, this.head(OrdaLogLevel.WARN));
+        this._error = this.original.error.bind(this, this.head(OrdaLogLevel.ERROR));
     }
 
     setWithPos(withPos: boolean) {
@@ -126,51 +133,51 @@ class OrdaConsole implements IConsole {
     }
 
     get trace(): logFunction {
-        if (this.isSilent('trace')) {
+        if (this.isSilent(OrdaLogLevel.TRACE)) {
             return this.dumb;
         }
         if (this.withPos && !isBrowser) {
-            return withFilePos(this.original.trace, this.head('trace'));
+            return withFilePos(this.original.trace, this.head(OrdaLogLevel.TRACE));
         }
         return this._trace;
     }
 
     get debug(): logFunction {
-        if (this.isSilent('debug')) {
+        if (this.isSilent(OrdaLogLevel.DEBUG)) {
             return this.dumb;
         }
         if (this.withPos && !isBrowser) {
-            return withFilePos(this.original.debug, this.head('debug'));
+            return withFilePos(this.original.debug, this.head(OrdaLogLevel.DEBUG));
         }
         return this._debug;
     }
 
     get info(): logFunction {
-        if (this.isSilent('info')) {
+        if (this.isSilent(OrdaLogLevel.INFO)) {
             return this.dumb;
         }
         if (this.withPos && !isBrowser) {
-            return withFilePos(this.original.info, this.head('info'));
+            return withFilePos(this.original.info, this.head(OrdaLogLevel.INFO));
         }
         return this._info;
     }
 
     get warn(): logFunction {
-        if (this.isSilent('warn')) {
+        if (this.isSilent(OrdaLogLevel.WARN)) {
             return this.dumb;
         }
         if (this.withPos && !isBrowser) {
-            return withFilePos(this.original.warn, this.head('warn'));
+            return withFilePos(this.original.warn, this.head(OrdaLogLevel.WARN));
         }
         return this._warn;
     }
 
     get error(): logFunction {
-        if (this.isSilent('error')) {
+        if (this.isSilent(OrdaLogLevel.ERROR)) {
             return this.dumb;
         }
         if (this.withPos && !isBrowser) {
-            return withFilePos(this.original.error, this.head('error'));
+            return withFilePos(this.original.error, this.head(OrdaLogLevel.ERROR));
         }
         return this._error;
     }
@@ -185,7 +192,7 @@ class OrdaLoggerFactory {
     private _logLevel: OrdaLogLevel;
     private readonly iConsole: IConsole;
 
-    constructor(logLevel: OrdaLogLevel = 'trace', iConsole?: IConsole) {
+    constructor(logLevel: OrdaLogLevel = OrdaLogLevel.TRACE, iConsole?: IConsole) {
         this._logLevel = logLevel;
         if (iConsole) {
             this.iConsole = iConsole;
