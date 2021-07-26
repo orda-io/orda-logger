@@ -22,7 +22,7 @@ interface IConsole {
     error: logFunction;
 }
 
-export const enum OrdaLogLevel {
+export enum OrdaLogLevel {
     TRACE = "trace",
     DEBUG = "debug",
     INFO = "info",
