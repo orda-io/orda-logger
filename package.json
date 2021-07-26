@@ -11,7 +11,7 @@
     "build:prod": "npm run clean && webpack --config=./webpack.prod.js --stats-all --profile --bail",
     "prepare": "npm run build:prod"
   },
-  "main": "dist/index.js",
+  "main": "dist/orda-logger.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/"
