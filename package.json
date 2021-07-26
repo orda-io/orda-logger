@@ -1,6 +1,6 @@
 {
   "name": "@orda-io/orda-logger",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Orda Logger: a very tiny logger written in Typescript, which is used in Orda project.",
   "scripts": {
     "clean": "rimraf dist",
