@@ -6,7 +6,13 @@ module.exports = function() {
   return webpackMerge.merge(base.config, {
     mode: "production",
     output: {
-      filename: "[name].js"
+      filename: "[name].js",
+      library: {
+        name: "orda-logger",
+        type: "umd"
+      },
+      globalObject: "this",
+      publicPath: "/"
     },
     devtool: "source-map",
     module: {},

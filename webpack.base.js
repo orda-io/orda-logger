@@ -7,13 +7,6 @@ exports.config = {
   entry: {
     "orda-logger": [root("src/index.ts")]
   },
-  output: {
-    library: {
-      name: "orda-logger",
-      type: "umd"
-    },
-    publicPath: "/"
-  },
   resolve: {
     extensions: [".ts", ".js"],
     modules: [root("src"), "node_modules"]
