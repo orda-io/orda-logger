@@ -1,7 +1,11 @@
 # Orda Logger
----------
-Orda Logger is a very tiny logger written in TypeScript, which is used in [Orda-js](https://github.com/orda-io/orda-js)
-project. The size of Orda-logger is about 4KB.
+
+## Introduction
+
+- Orda Logger is a very tiny logger written in TypeScript, which is used
+  in [Orda-js](https://github.com/orda-io/orda-js)
+  project.
+- The size of Orda-logger is about 4KB.
 
 ## Install
 
@@ -9,7 +13,7 @@ project. The size of Orda-logger is about 4KB.
 $ npm i @orda-io/orda-logger
 ```
 
-## Features
+## How to use
 
 You can use orda-logger as follows:
 
