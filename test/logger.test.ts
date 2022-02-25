@@ -1,4 +1,4 @@
-import { OrdaLoggerFactory } from "../src";
+import { OrdaLoggerFactory, OrdaLogLevel } from "../src";
 
 function generate_error(): Error {
   throw new Error("generated error");
@@ -21,7 +21,7 @@ describe("Test Orda Logger", () => {
   });
 
   it("Can log with Orda Logger", () => {
-    const logFactory = new OrdaLoggerFactory("trace");
+    const logFactory = new OrdaLoggerFactory(OrdaLogLevel.TRACE);
     const logger = logFactory.getLogger("test logging");
     logger.trace("trace message");
     logger.debug("debug message");
